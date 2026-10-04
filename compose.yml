@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   devopsdb:
+    container_name: dbcont
     image: shaikmustafa/deepika:db
     ports:
       - "3306:3306"
@@ -11,11 +12,12 @@ services:
       - mynetwork
 
   application:
+    container_name: appcont
     image: shaikmustafa/deepika:app
     ports:
       - "1111:8080"
     deploy:
-      replicas: 3
+      replicas: 1
     depends_on:
       - devopsdb
     networks:
@@ -23,4 +25,4 @@ services:
 
 networks:
   mynetwork:
-    driver: overlay
+    driver: bridge
