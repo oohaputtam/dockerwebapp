@@ -3,7 +3,7 @@ version: "3.9"
 services:
   devopsdb:
     container_name: dbcont
-    image: shaikmustafa/deepika:db
+    image: oohaputtam/flm-oct:db
     ports:
       - "3306:3306"
     deploy:
@@ -13,7 +13,7 @@ services:
 
   application:
     container_name: appcont
-    image: shaikmustafa/deepika:app
+    image: oohaputtam/flm-oct:javaapp
     ports:
       - "1111:8080"
     deploy:
